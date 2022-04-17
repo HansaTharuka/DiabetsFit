@@ -47,7 +47,7 @@ import p4s5 from "./images/Plan 4 - under weight diabetes negative/step 5 - one 
 import p4s6 from "./images/Plan 4 - under weight diabetes negative/step 6 - leg raise.PNG";
 
 function App() {
-  const [page, setPage] = useState("login");
+  const [page, setPage] = useState("home");
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
