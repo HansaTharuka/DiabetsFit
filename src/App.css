@@ -36,3 +36,53 @@
     transform: rotate(360deg);
   }
 }
+
+.navigation-link {
+  color: blueviolet;
+  text-decoration: underline;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.image {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.button {
+  width: 20vmin;
+  height: 4vmin;
+  border-radius: 15vmin;
+}
+
+.input {
+  width: 200px;
+  /* height: 4vmin; */
+  border-radius: 15vmin;
+}
+
+.label {
+  width: 200px;
+  text-align: left;
+  display: inline-block;
+}
+
+.label1 {
+  width: 150px;
+  text-align: left;
+  display: inline-block;
+}
+
+.label2 {
+  width: 150px;
+  text-align: left;
+  display: inline-block;
+  color: gold;
+}
+
+.label3 {
+  width: 150px;
+  text-align: center;
+  display: inline-block;
+  color: greenyellow;
+}
