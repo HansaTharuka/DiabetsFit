@@ -1,9 +1,11 @@
 // import logo from "./logo.svg";
 import { useEffect, useState } from "react";
-import { Button, Form, Nav } from 'react-bootstrap';
+import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
 import "./App.css";
 
 //images
+import homeImage from "./images/home.jpg";
+
 //plan 1
 import p1s1 from "./images/Plan 1 - over weight diabetes possitive/step 1- scott with a wall.webp";
 import p1s2 from "./images/Plan 1 - over weight diabetes possitive/step 2 - punches.webp";
@@ -154,21 +156,53 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar bg="light" expand="lg">
+        <Container>
+          <Navbar.Brand onClick={() => setPage("home")} className="home">
+            DiabetsFit
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Nav className="navi">
+            <Nav.Item onClick={() => setPage("login")}>
+              <Nav.Link>Login</Nav.Link>
+            </Nav.Item>
+            <Nav.Item onClick={() => setPage("register")}>
+              <Nav.Link>Register</Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </Container>
+      </Navbar>
       <header className="App-header">
         <Form id="form" onSubmit={handleSubmit} className="form">
-          {page === "login" ? (
+          {page === "home" ? (
+            <>
+              <img src={homeImage} className="homeimage" alt="home" />
+            </>
+          ) : page === "login" ? (
             <>
               <h2>Login</h2>
 
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Control type="email" name="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter email" />
+                <Form.Control
+                  type="email"
+                  name="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="Enter email"
+                />
                 <Form.Text className="text-muted">
                   We'll never share your username with anyone else.
                 </Form.Text>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Control type="password" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <Form.Control
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </Form.Group>
               <Button variant="primary" type="submit">
                 Submit
@@ -183,21 +217,39 @@ function App() {
             <>
               <h2>Register</h2>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Control type="email" name="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter email" />
+                <Form.Control
+                  type="email"
+                  name="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="Enter email"
+                />
                 <Form.Text className="text-muted">
                   We'll never share your email with anyone else.
                 </Form.Text>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Control type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter username" />
+                <Form.Control
+                  type="text"
+                  name="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="Enter username"
+                />
                 <Form.Text className="text-muted">
                   We'll never share your username with anyone else.
                 </Form.Text>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Control type="password" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <Form.Control
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </Form.Group>
               <Button variant="primary" type="submit">
                 Submit
@@ -212,39 +264,93 @@ function App() {
             <>
               <Form.Group className="mb-3">
                 <Form.Label>Pregnancies</Form.Label>
-                <Form.Control type="number" name="pregnancies" value={pregnancies} onChange={(e) => setpregnancies(e.target.value)} placeholder="1" />
+                <Form.Control
+                  type="number"
+                  name="pregnancies"
+                  value={pregnancies}
+                  onChange={(e) => setpregnancies(e.target.value)}
+                  placeholder="1"
+                />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Glucose</Form.Label>
-                <Form.Control type="number" name="glucose" value={glucose} onChange={(e) => setGlucose(e.target.value)} placeholder="148" />
+                <Form.Control
+                  type="number"
+                  name="glucose"
+                  value={glucose}
+                  onChange={(e) => setGlucose(e.target.value)}
+                  placeholder="148"
+                />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Blood pressure</Form.Label>
-                <Form.Control type="number" name="bloodpressure" value={bloodpressure} onChange={(e) => setBloodpressure(e.target.value)} placeholder="72" />
+                <Form.Control
+                  type="number"
+                  name="bloodpressure"
+                  value={bloodpressure}
+                  onChange={(e) => setBloodpressure(e.target.value)}
+                  placeholder="72"
+                />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Skin thickness</Form.Label>
-                <Form.Control type="number" name="skinthickness" value={skinthickness} onChange={(e) => setSkinthickness(e.target.value)} placeholder="35" />
+                <Form.Control
+                  type="number"
+                  name="skinthickness"
+                  value={skinthickness}
+                  onChange={(e) => setSkinthickness(e.target.value)}
+                  placeholder="35"
+                />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Insulin</Form.Label>
-                <Form.Control type="number" name="insulin" value={insulin} onChange={(e) => setInsulin(e.target.value)} placeholder="0" />
+                <Form.Control
+                  type="number"
+                  name="insulin"
+                  value={insulin}
+                  onChange={(e) => setInsulin(e.target.value)}
+                  placeholder="0"
+                />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>DPF</Form.Label>
-                <Form.Control type="text" name="dpf" value={dpf} onChange={(e) => setDpf(e.target.value)} placeholder="0.627" />
+                <Form.Control
+                  type="text"
+                  name="dpf"
+                  value={dpf}
+                  onChange={(e) => setDpf(e.target.value)}
+                  placeholder="0.627"
+                />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Age</Form.Label>
-                <Form.Control type="number" name="age" value={age} onChange={(e) => setAge(e.target.value)} placeholder="50" />
+                <Form.Control
+                  type="number"
+                  name="age"
+                  value={age}
+                  onChange={(e) => setAge(e.target.value)}
+                  placeholder="50"
+                />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Weight</Form.Label>
-                <Form.Control type="number" name="weight" value={weight} onChange={(e) => setWeight(e.target.value)} placeholder="92" />
+                <Form.Control
+                  type="number"
+                  name="weight"
+                  value={weight}
+                  onChange={(e) => setWeight(e.target.value)}
+                  placeholder="92"
+                />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Height</Form.Label>
-                <Form.Control type="number" name="height" value={height} onChange={(e) => setHeight(e.target.value)} placeholder="92" />
+                <Form.Control
+                  type="number"
+                  name="height"
+                  value={height}
+                  onChange={(e) => setHeight(e.target.value)}
+                  placeholder="92"
+                />
               </Form.Group>
               <br></br>
               {loading ? (
@@ -330,6 +436,7 @@ function App() {
             <></>
           )}
         </Form>
+        {/* )} */}
       </header>
     </div>
   );
