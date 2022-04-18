@@ -1,6 +1,6 @@
 // import logo from "./logo.svg";
 import { useEffect, useState } from "react";
-import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Form, Nav, Navbar, Table ,ListGroup} from "react-bootstrap";
 import "./App.css";
 
 //images
@@ -45,6 +45,10 @@ import p4s3 from "./images/Plan 4 - under weight diabetes negative/step 3 - crun
 import p4s4 from "./images/Plan 4 - under weight diabetes negative/step 4 - lunges.webp";
 import p4s5 from "./images/Plan 4 - under weight diabetes negative/step 5 - one leg raise.webp";
 import p4s6 from "./images/Plan 4 - under weight diabetes negative/step 6 - leg raise.PNG";
+
+const divStyle = {
+  color: 'white'
+};
 
 function App() {
   const [page, setPage] = useState("home");
@@ -159,7 +163,7 @@ function App() {
       <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Brand onClick={() => setPage("home")} className="home">
-            DiabetsFit
+            diabetsFit
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Nav className="navi">
@@ -362,30 +366,37 @@ function App() {
               )}
             </>
           ) : page === "result" ? (
-            <>
-              <div>
-                <div>
-                  <label className="label1">Your BMI : </label>
-                  <label className="label2">{result.bmi}</label>
-                </div>
-                <div>
-                  <label className="label1">Diabatic : </label>
-                  <label className="label2">
-                    {result.prediction === 0 ? "Negative" : "Positive"}
-                  </label>
-                </div>
-                <div>
-                  <label className="label1">Plan : </label>
-                  <label className="label2">{result.plan}</label>
-                </div>
-                <h4 className="navigation-link" onClick={() => setPage("form")}>
-                  Back
-                </h4>
-              </div>
+            <><br /><br />
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th><p style={divStyle}>Your BMI : </p></th>
+                    <th><p style={divStyle}>Diabatic : </p></th>
+                    <th><p style={divStyle}>Plan : </p></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p style={divStyle}>{result.bmi}</p></td>
+                    <td><p style={divStyle}>{result.prediction === 0 ? "Negative" : "Positive"}</p></td>
+                    <td><p style={divStyle}>{result.plan}</p></td>
+                  </tr>
+                </tbody>
+              </Table>
+              <h4 className="navigation-link" onClick={() => setPage("form")}>
+                Back
+              </h4>
               <br></br>
               <br></br>
               {result.plan === 1 ? (
                 <>
+                <ListGroup>
+                    <ListGroup.Item>Do each exercise for 30 seconds</ListGroup.Item>
+                    <ListGroup.Item>Then rest for 30 seconds</ListGroup.Item>
+                    <ListGroup.Item>After finishing all the 8 exercises take a 5 minutes rest</ListGroup.Item>
+                    <ListGroup.Item>Repeat three sets from each exercise</ListGroup.Item>
+                  </ListGroup>
+                  <br/>
                   <img src={p1s1} className="image" alt="image1" />
                   <img src={p1s2} className="image" alt="image1" />
                   <img src={p1s3} className="image" alt="image1" />
@@ -397,6 +408,13 @@ function App() {
                 </>
               ) : result.plan === 2 ? (
                 <>
+                <ListGroup>
+                    <ListGroup.Item>Do each exercise for 30 seconds</ListGroup.Item>
+                    <ListGroup.Item>Then rest for 30 seconds</ListGroup.Item>
+                    <ListGroup.Item>After finishing all the 12 exercises take a 3 minutes rest</ListGroup.Item>
+                    <ListGroup.Item>Repeat three sets from each exercise</ListGroup.Item>
+                  </ListGroup>
+                  <br></br>
                   <img src={p2s1} className="image" alt="image1" />
                   <img src={p2s2} className="image" alt="image1" />
                   <img src={p2s3} className="image" alt="image1" />
@@ -412,6 +430,13 @@ function App() {
                 </>
               ) : result.plan === 3 ? (
                 <>
+                <ListGroup>
+                    <ListGroup.Item>Do each exercise for 20 seconds</ListGroup.Item>
+                    <ListGroup.Item>Then rest for 40 seconds</ListGroup.Item>
+                    <ListGroup.Item>After finishing all the 6 exercises take a 8 minutes rest</ListGroup.Item>
+                    <ListGroup.Item>Repeat three sets from each exercise</ListGroup.Item>
+                  </ListGroup>
+                  <br></br>
                   <img src={p3s1} className="image" alt="image1" />
                   <img src={p3s2} className="image" alt="image1" />
                   <img src={p3s3} className="image" alt="image1" />
@@ -421,6 +446,13 @@ function App() {
                 </>
               ) : result.plan === 4 ? (
                 <>
+                <ListGroup>
+                    <ListGroup.Item>Do each exercise for 20 seconds</ListGroup.Item>
+                    <ListGroup.Item>Then rest for 40 seconds</ListGroup.Item>
+                    <ListGroup.Item>After finishing all the 6 exercises take a 3 minutes rest</ListGroup.Item>
+                    <ListGroup.Item>PRepeat three sets from each exercise</ListGroup.Item>
+                  </ListGroup>
+                  <br></br>
                   <img src={p4s1} className="image" alt="image1" />
                   <img src={p4s2} className="image" alt="image1" />
                   <img src={p4s3} className="image" alt="image1" />
